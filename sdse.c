@@ -14,35 +14,25 @@ typedef struct wuk_sdse {
 
 #ifndef WUK_IS_LITTLE_ENDIAN
 #   if defined(_WIN32)
-#       define WUK_IS_LITTLE_ENDIAN() true
+#       define WUK_IS_LITTLE_ENDIAN true
 #   else
 #      include <endian.h>
 #      if __BYTE_ORDER__
 #          if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-#              define WUK_IS_LITTLE_ENDIAN() true
+#              define WUK_IS_LITTLE_ENDIAN true
 #          elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-#              define WUK_IS_LITTLE_ENDIAN() false
+#              define WUK_IS_LITTLE_ENDIAN false
 #          endif
-#      else
-static inline bool WUK_IS_LITTLE_ENDIAN(void)
-{
-    uint32_t n = 1;
-    return (*((uint8_t *)&n) == 1);
-}
 #      endif
 #   endif
 #endif
 
-#if defined(_WIN32) && defined(_MSC_VER)
-#   define ROTL32(x, n) _rotl(x, n)
-#else
-#   define ROTL32(x, n) (((x) << (n)) | ((x) >> (32 - (n))))
-#endif
+#define ROTL32(x, n) (((x) << (n)) | ((x) >> (32 - (n))))
 
 static inline uint32_t load32_le(const uint8_t d[4])
 {
     uint32_t w;
-#   if WUK_IS_LITTLE_ENDIAN()
+#   if WUK_IS_LITTLE_ENDIAN
     memcpy(&w, d, sizeof w);
 #   else
     w =  (uint32_t) d[0];
@@ -55,7 +45,7 @@ static inline uint32_t load32_le(const uint8_t d[4])
 
 static inline void store32_le(uint8_t dst[4], uint32_t w)
 {
-#   if WUK_IS_LITTLE_ENDIAN()
+#   if WUK_IS_LITTLE_ENDIAN
     memcpy(dst, &w, sizeof w);
 #   else
     dst[0] = (uint8_t) w; w >>= 8;
