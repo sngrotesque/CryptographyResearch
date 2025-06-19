@@ -50,8 +50,4 @@
 | SSE       | Linear state transition | Single state → full compromise |  
 | SDSE      | Weak nonlinear ops | Key recovery via algebraic attacks |  
 
-**For real-world applications**, use standardized algorithms like **AES-GCM** or **ChaCha20-Poly1305**.  
-
---- 
-
-Let me know if you'd like any modifications! This version maintains your original intent while making it clearer for an English-speaking research audience.
+**For real-world applications**, use standardized algorithms like **AES-GCM** or **ChaCha20-Poly1305**.
