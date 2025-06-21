@@ -19,6 +19,14 @@
 
 ---
 
+### FEA (Old)  
+> A **non-tested** block cipher algorithm  
+> **Potential risks**:  
+> - Excessively high linearity  
+> - Key recovery via reverse engineering (unverified)  
+
+---
+
 ### SSE (SN Stream Encryption)  
 > A **non-standard** stream cipher implementation with critical flaws.  
 > **Vulnerable to**:  
