@@ -20,10 +20,10 @@
 ---
 
 ### FEA (Old)  
-> A **non-tested** block cipher algorithm  
+> A **not sufficiently tested** block cipher algorithm  
 > **Potential risks**:  
-> - Excessively high linearity  
-> - Key recovery via reverse engineering (unverified)  
+> - Excessive linearity in certain transformations  
+> - Possible recovery of round keys through reverse engineering *(unverified)*  
 
 ---
 
